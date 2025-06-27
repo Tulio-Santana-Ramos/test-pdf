@@ -1,5 +1,6 @@
 from flask import Flask, request, send_file, jsonify
-from utils import gerar_html_from_data
+from apscheduler.schedulers.background import BackgroundScheduler
+from utils import *
 from weasyprint import HTML
 from dotenv import load_dotenv
 import io, os
@@ -32,6 +33,19 @@ def gerar_proposta():
     except Exception as e:
         app.logger.exception("Erro ao gerar PDF")
         return jsonify({"error": f"Erro interno: {str(e)}"}), 500
+
+# Create ping route to keep app alive
+@app.route('/ping', methods = ['GET', 'POST'])
+
+# Function dealing with the ping route
+def ping():
+    if request.method == 'POST':
+        return jsonify({'status': 'alive', 'results': 12345}), 200
+    return jsonify({"status": "alive"}), 200
+
+scheduler = BackgroundScheduler()
+scheduler.add_job(keep_alive, trigger = 'interval', minutes = 13)
+scheduler.start()
 
 if __name__ == '__main__':
     # Check debug flag in the arguments
