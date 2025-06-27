@@ -1,7 +1,8 @@
 from flask import Flask, request, send_file, jsonify
 from utils import gerar_html_from_data
 from weasyprint import HTML
-import io
+from dotenv import load_dotenv
+import io, os
 import logging
 
 app = Flask(__name__)
@@ -32,5 +33,9 @@ def gerar_proposta():
         app.logger.exception("Erro ao gerar PDF")
         return jsonify({"error": f"Erro interno: {str(e)}"}), 500
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    # Check debug flag in the arguments
+    load_dotenv()
+    PORT = os.getenv('RENDER_PORT', 10000)
+    # Host selection based on host_server definitions -> In this case, following Render settings
+    app.run(host = '0.0.0.0', port = PORT)
