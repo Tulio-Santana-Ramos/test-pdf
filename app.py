@@ -1,5 +1,5 @@
 from flask import Flask, request, send_file, jsonify
-from function_app import gerar_html_from_data
+from utils import gerar_html_from_data
 from weasyprint import HTML
 import io
 import logging
