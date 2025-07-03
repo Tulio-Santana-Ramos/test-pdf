@@ -9,7 +9,7 @@ env = Environment(
 
 def gerar_html_from_data(dados: dict) -> str:
     """Render HTML from a template and data dict."""
-    match dados.get('file_type'):
+    match dados.get('template'):
         case 'advogado':
             template = env.get_template("template_adv.html")
         case 'reclamante':
