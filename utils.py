@@ -11,11 +11,11 @@ def gerar_html_from_data(dados: dict) -> str:
     """Render HTML from a template and data dict."""
     match dados.get('template'):
         case 'advogado':
-            template = env.get_template("template_adv.html")
+            template = env.get_template("template_adv_nova.html")
         case 'reclamante':
-            template = env.get_template("template_rec.html")
+            template = env.get_template("template_rec_nova.html")
         case _:
-            template = env.get_template("template_adv.html")
+            template = env.get_template("template_rec_nova.html")
     rendered_html = template.render(**dados)
     return rendered_html
 
