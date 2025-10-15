@@ -75,7 +75,6 @@ def send_file_s3(file, filename):
             "ContentType": "application/pdf",
             "ContentDisposition": content_disposition(safe_name, inline=True),
             "Metadata": {"filename": ascii_for_s3_meta(safe_name)},
-            "ACL": 'public-read'
         }
         if getattr(file, "mimetype", None):
             extra_args["ContentType"] = file.mimetype
