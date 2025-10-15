@@ -1,15 +1,15 @@
 from flask import Flask, request, send_file, jsonify
 from apscheduler.schedulers.background import BackgroundScheduler
-from utils import *
-from weasyprint import HTML
 from dotenv import load_dotenv
-import io, os
-import logging
+from weasyprint import HTML
+from utils import *
+import io, os, logging
 
 app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 
-@app.route("/gerar-proposta", methods=["POST"])
+# Rota principal para aramazenar propostas da ASW S3 e apenas retornar o link das mesmas
+@app.route("/gerar-proposta-nv", methods=["POST"])
 def gerar_proposta():
     try:
         dados = request.get_json()
@@ -22,7 +22,34 @@ def gerar_proposta():
         pdf_io = io.BytesIO()
         HTML(string=rendered_html).write_pdf(pdf_io)
         pdf_io.seek(0)
+        link = send_file_s3(pdf_io, f"{dados.get('nome')}.pdf")
 
+        # Retorno de links aos arquivos na AWS S3
+        if 'advogado' in dados.get('template'):
+            return jsonify({ "reclamada": link }), 200
+        else:
+            return jsonify({ "reclamante": link }), 200
+
+    except Exception as e:
+        app.logger.exception("Erro ao gerar PDF")
+        return jsonify({"error": f"Erro interno: {str(e)}"}), 500
+
+# Rota auxiliar para obter diretamente o arquivo de propostas, sem envio à AWS S3
+@app.route('/gerar-proposta', methods=["POST"])
+def gerar_proposta_pdf():
+    try:
+        dados = request.get_json()
+        app.logger.info(f"Received payload: {dados}")
+
+        # Generate HTML string from input data
+        rendered_html = gerar_html_from_data(dados)
+
+        # Generate PDF in memory
+        pdf_io = io.BytesIO()
+        HTML(string=rendered_html).write_pdf(pdf_io)
+        pdf_io.seek(0)
+
+        # Retorno direto de arquivo pdf
         return send_file(
             pdf_io,
             mimetype="application/pdf",
