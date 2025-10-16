@@ -9,7 +9,7 @@ app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 
 # Rota principal para aramazenar propostas da ASW S3 e apenas retornar o link das mesmas
-@app.route("/gerar-proposta-nv", methods=["POST"])
+@app.route("/gerar-proposta", methods=["POST"])
 def gerar_proposta():
     try:
         dados = request.get_json()
@@ -35,7 +35,7 @@ def gerar_proposta():
         return jsonify({"error": f"Erro interno: {str(e)}"}), 500
 
 # Rota auxiliar para obter diretamente o arquivo de propostas, sem envio à AWS S3
-@app.route('/gerar-proposta', methods=["POST"])
+@app.route('/gerar-proposta-antigo', methods=["POST"])
 def gerar_proposta_pdf():
     try:
         dados = request.get_json()
