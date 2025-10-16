@@ -1,7 +1,8 @@
+from typing import List
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from dotenv import load_dotenv
 from urllib.parse import quote
-import os, requests, boto3, urllib.parse, unicodedata
+import os, requests, boto3, urllib.parse, unicodedata, re
 from boto3.s3.transfer import TransferConfig
 
 # Set up Jinja environment
@@ -39,6 +40,48 @@ def safe_filename(name: str) -> str:
     name = name.replace("\\", "/").split("/")[-1].strip()
     return name or "arquivo.pdf"
 
+def find_next_versioned_filename_list(s3_client: boto3.client, bucket: str, folder: str, original_filename: str) -> str:
+    base_name, ext = os.path.splitext(original_filename)
+    
+    s3_prefix = f"{folder}{base_name}"
+    paginator = s3_client.get_paginator('list_objects_v2')
+    pages = paginator.paginate(Bucket=bucket, Prefix=s3_prefix, MaxKeys=1000)
+    
+    existing_keys: List[str] = []
+    
+    version_pattern = re.compile(rf"^{re.escape(base_name)}(?:_v(\d+))?{re.escape(ext)}$")
+
+    for page in pages:
+        if 'Contents' in page:
+            for item in page['Contents']:
+                key = item['Key']
+                
+                filename_only = key[len(folder):]
+                if version_pattern.match(filename_only):
+                    existing_keys.append(filename_only)
+
+    if not existing_keys:
+        return original_filename
+    
+    max_version = 0
+    
+    for key in existing_keys:
+        match = version_pattern.match(key)
+        if match:
+            if key == original_filename:
+                max_version = max(max_version, 1)
+            
+            version_num = match.group(1)
+            if version_num:
+                max_version = max(max_version, int(version_num))
+
+    next_version = max_version + 1
+    
+    if next_version == 1:
+        return original_filename
+    else:
+        return f"{base_name}_v{next_version}{ext}"
+
 # Function to access AWS S3
 def get_access_s3():
     # Get necessary keys
@@ -70,18 +113,27 @@ def send_file_s3(file, filename):
     # Store file and retrieve link access
     try:
         file.seek(0)
-        safe_name = safe_filename(filename)
+        original_safe_name = safe_filename(filename)
+        folder = 'propostas/'
+
+        final_filename = find_next_versioned_filename_list(
+            s3_client, bucket, folder, original_safe_name
+        )
+
         extra_args = {
             "ContentType": "application/pdf",
-            "ContentDisposition": content_disposition(safe_name, inline=True),
-            "Metadata": {"filename": ascii_for_s3_meta(safe_name)},
+            "ContentDisposition": content_disposition(final_filename, inline=True),
+            "Metadata": {"filename": ascii_for_s3_meta(final_filename)},
         }
         if getattr(file, "mimetype", None):
             extra_args["ContentType"] = file.mimetype
 
-        folder = 'propostas/'
-        s3_client.upload_fileobj(file, bucket, f"{folder}{filename}", ExtraArgs=extra_args, Config=S3_TRANSFER_CONFIG)
-        url_name = urllib.parse.quote_plus(filename)
+        s3_key = f"{folder}{final_filename}"
+        s3_client.upload_fileobj(
+            file, bucket, s3_key, ExtraArgs=extra_args, Config=S3_TRANSFER_CONFIG
+        )
+
+        url_name = urllib.parse.quote_plus(final_filename)
         link = f"https://{bucket}.s3.{reg}.amazonaws.com/{folder}{url_name}"
 
         return link
