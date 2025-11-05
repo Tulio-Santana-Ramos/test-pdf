@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proposta de Cessão de Crédito - Yalla</title>
   <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -15,162 +20,130 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
       line-height: 1.5;
       color: #1a1a1a;
-      background-color: #ffffff;
+      background-color: #f5f5f5;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
     }
 
-    .container {
-      max-width: 80rem;
+    .page {
+      background: white;
+      width: 210mm;
+      min-height: 297mm;
+      padding: 40px;
       margin: 0 auto;
-      padding: 0 2rem;
     }
 
     /* Header */
-    header {
-      background-color: white;
-      border-bottom: 1px solid #e5e5e5;
-      padding: 1.5rem 2rem;
-    }
-
-    header .container {
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 30px;
     }
 
     .logo {
-      height: 2rem;
-      font-size: 1.5rem;
+      font-size: 24px;
       font-weight: bold;
       color: #00CED1;
     }
 
-    nav {
-      display: flex;
-      gap: 2rem;
-    }
-
-    nav a {
-      color: #666;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    nav a:hover {
-      color: #1a1a1a;
-    }
-
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(to bottom right, #ffffff, #f9fafb);
-      padding: 4rem 2rem;
-    }
-
+    /* Title */
     h1 {
-      font-size: 3rem;
-      margin-bottom: 2rem;
+      font-size: 28px;
+      font-weight: bold;
       color: #1a1a1a;
-      line-height: 1;
+      margin-bottom: 30px;
+      text-align: left;
     }
 
-    .grid {
+    /* Two Column Layout */
+    .content {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    @media (min-width: 768px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .grid-2 {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
     }
 
     /* Cards */
     .card {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Proposal Value */
+    .value-card {
       background: white;
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
     }
 
-    .card-border-top {
-      border-top: 4px solid #00CED1;
+    .value-label {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 8px;
     }
 
-    .card-dark {
-      background: #1a1a1a;
-      color: white;
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      font-size: 0.875rem;
-    }
-
-    .card-gradient {
-      background: linear-gradient(to bottom right, #00CED1, #20B2AA);
-      color: white;
-      border-radius: 1rem;
-      padding: 2rem;
-    }
-
-    /* Typography */
-    .text-gradient {
-      font-size: 3rem;
+    .value-amount {
+      font-size: 42px;
+      font-weight: bold;
       background: linear-gradient(to right, #00CED1, #20B2AA);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      font-weight: bold;
-      line-height: 1;
+      margin-bottom: 12px;
     }
 
-    .text-gray-700 {
-      color: #374151;
+    .value-subtitle {
+      font-size: 12px;
+      color: #999;
     }
 
-    .text-gray-600 {
-      color: #4b5563;
+    /* Dark Cards */
+    .dark-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 30px;
     }
 
-    .text-gray-500 {
-      color: #6b7280;
-    }
-
-    .text-gray-900 {
-      color: #1a1a1a;
-    }
-
-    .text-sm {
-      font-size: 0.875rem;
-    }
-
-    .text-xl {
-      font-size: 1.25rem;
-    }
-
-    .text-2xl {
-      font-size: 1.5rem;
+    .card-dark {
+      background: #2a2a2a;
+      color: white;
+      border-radius: 10px;
+      padding: 16px;
+      font-size: 11px;
+      line-height: 1.5;
     }
 
     /* Steps Section */
-    .steps {
-      margin-top: 3rem;
+    .steps-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 20px;
     }
 
     .step {
       display: flex;
-      gap: 1rem;
+      gap: 15px;
       align-items: flex-start;
-      margin-bottom: 1.5rem;
+      margin-bottom: 20px;
     }
 
     .step-icon {
-      width: 4rem;
-      height: 4rem;
+      width: 50px;
+      height: 50px;
       background: #FF6B35;
-      border-radius: 0.75rem;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -178,8 +151,8 @@
     }
 
     .step-icon svg {
-      width: 2rem;
-      height: 2rem;
+      width: 28px;
+      height: 28px;
       color: white;
     }
 
@@ -187,19 +160,76 @@
       flex: 1;
     }
 
-    /* Info Cards */
-    .info-card {
+    .step-content p {
+      font-size: 13px;
+      color: #374151;
+      line-height: 1.5;
+    }
+
+    .step-content .subtitle {
+      font-size: 11px;
+      color: #999;
+      margin-top: 4px;
+    }
+
+    /* Right Column - Process Data */
+    .process-card {
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-top: 4px solid #00CED1;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .process-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 20px;
+    }
+
+    .process-item {
+      margin-bottom: 16px;
+    }
+
+    .process-label {
+      font-size: 11px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+
+    .process-value {
+      font-size: 13px;
+      color: #1a1a1a;
+    }
+
+    /* Info Card (Gradient) */
+    .info-card-gradient {
+      background: linear-gradient(to bottom right, #00CED1, #20B2AA);
+      color: white;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .info-card-gradient h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .info-item {
       display: flex;
-      gap: 1rem;
+      gap: 12px;
       align-items: flex-start;
-      margin-bottom: 2rem;
+      margin-bottom: 20px;
     }
 
     .info-icon {
-      width: 3rem;
-      height: 3rem;
+      width: 40px;
+      height: 40px;
       background: rgba(255, 255, 255, 0.2);
-      border-radius: 0.75rem;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -207,275 +237,231 @@
     }
 
     .info-icon svg {
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 20px;
+      height: 20px;
       color: white;
+    }
+
+    .info-text {
+      font-size: 11px;
+      line-height: 1.6;
     }
 
     /* Footer */
-    footer {
-      background: #1a1a1a;
-      color: white;
-      padding: 2rem;
-    }
-
-    footer .container {
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e5e5;
       display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    @media (min-width: 768px) {
-      footer .container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #666;
     }
 
     .contact-info {
       display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .contact-item {
+      display: flex;
       align-items: center;
-      gap: 0.5rem;
-      color: #d1d5db;
-      margin-bottom: 0.5rem;
+      gap: 8px;
     }
 
-    .contact-info svg {
-      width: 1.25rem;
-      height: 1.25rem;
-    }
-
-    .footer-address {
-      color: #d1d5db;
-      text-align: center;
-    }
-
-    @media (min-width: 768px) {
-      .footer-address {
-        text-align: right;
-      }
-    }
-
-    .space-y-6 > * + * {
-      margin-top: 1.5rem;
-    }
-
-    .space-y-4 > * + * {
-      margin-top: 1rem;
-    }
-
-    .space-y-8 > * + * {
-      margin-top: 2rem;
+    .contact-item svg {
+      width: 14px;
+      height: 14px;
     }
 
     strong {
       font-weight: 600;
     }
+
+    @media print {
+      body {
+        background: white;
+      }
+      .page {
+        margin: 0;
+        padding: 20mm;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="container">
+  <div class="page">
+    <!-- Header -->
+    <div class="header">
       <div class="logo">YALLA</div>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Blog</a>
-      </nav>
     </div>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h1>PROPOSTA DE CESSÃO DE CRÉDITO</h1>
-      
-      <div class="grid">
-        <!-- Left Column -->
-        <div class="space-y-6">
-          <div class="card">
-            <p class="text-gray-700" style="margin-bottom: 0.5rem;">
-              Olá, <strong>{{ nome }}</strong>,
-            </p>
-            <p class="text-gray-700">
-              Segue proposta para <strong>realização</strong> de cessão de crédito parcial do processo
-            </p>
+    <!-- Title -->
+    <h1>PROPOSTA DE CESSÃO DE CRÉDITO</h1>
+
+    <!-- Two Column Content -->
+    <div class="content">
+      <!-- Left Column -->
+      <div>
+        <div class="card">
+          <p>
+            Olá, <strong>{{ nome }}</strong>,
+          </p>
+          <p style="margin-top: 8px;">
+            Segue proposta para <strong>realização</strong> de cessão de crédito parcial do processo
+          </p>
+        </div>
+
+        <div class="value-card">
+          <p class="value-label">Valor da proposta:</p>
+          <div class="value-amount">{{ valor_proposta }}*</div>
+          <p class="value-subtitle">
+            Para antecipar o crédito no valor de {{ valor_credito }}
+          </p>
+        </div>
+
+        <div class="dark-cards">
+          <div class="card-dark">
+            * {{ obs_safe }}
           </div>
-
-          <div class="card">
-            <p class="text-sm text-gray-600" style="margin-bottom: 0.5rem;">Valor da proposta:</p>
-            <p class="text-gradient">{{ valor_proposta }}*</p>
-            <p class="text-sm text-gray-500" style="margin-top: 1rem;">
-              Para antecipar o crédito no valor de {{ valor_credito }}
-            </p>
-          </div>
-
-          <div class="grid grid-2">
-            <div class="card-dark">
-              * {{ obs | safe }}
-            </div>
-            <div class="card-dark">
-              O risco do processo é todo da Juri. Portanto, caso algo dê errado em seu processo, ou a gente receba valor inferior ao estimado, você não deverá nada à Juri Capital
-            </div>
-          </div>
-
-          <!-- Próximos Passos -->
-          <div class="steps">
-            <h2 class="text-2xl text-gray-900" style="margin-bottom: 1.5rem;">Próximos passos</h2>
-            
-            <div class="step">
-              <div class="step-icon">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
-                </svg>
-              </div>
-              <div class="step-content">
-                <p class="text-gray-700">
-                  Dê o aceite da proposta para a nossa equipe
-                </p>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="step-icon">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <div class="step-content">
-                <p class="text-gray-700">
-                  Após o aceite, envie os documentos que solicitamos (o envio pode ser por e-mail ou whatsapp)
-                </p>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="step-icon">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                </svg>
-              </div>
-              <div class="step-content">
-                <p class="text-gray-700">
-                  Contrato & Assinatura
-                </p>
-                <p class="text-sm text-gray-500" style="margin-top: 0.25rem;">
-                  Assine o contrato recebido no seu e-mail
-                </p>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="step-icon">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div class="step-content">
-                <p class="text-gray-700">
-                  Receba o dinheiro na sua conta
-                </p>
-              </div>
-            </div>
+          <div class="card-dark">
+            O risco do processo é todo da Juri. Portanto, caso algo dê errado em seu processo, ou a gente receba valor inferior ao estimado, você não deverá nada à Juri Capital
           </div>
         </div>
 
-        <!-- Right Column -->
-        <div class="space-y-6">
-          <div class="card card-border-top">
-            <h3 class="text-xl text-gray-900" style="margin-bottom: 1.5rem;">DADOS DO PROCESSO</h3>
-            
-            <div class="space-y-4">
-              <div>
-                <p class="text-sm text-gray-600" style="margin-bottom: 0.25rem;">Natureza do Ativo Judicial</p>
-                <p class="text-gray-900">{{ natureza }}</p>
-              </div>
-              
-              <div>
-                <p class="text-sm text-gray-600" style="margin-bottom: 0.25rem;">Número do Processo</p>
-                <p class="text-gray-900">{{ numero_processo }}</p>
-              </div>
-              
-              <div>
-                <p class="text-sm text-gray-600" style="margin-bottom: 0.25rem;">Reclamante</p>
-                <p class="text-gray-900">{{ reclamante }}</p>
-              </div>
+        <!-- Steps -->
+        <h2 class="steps-title">Próximos passos</h2>
+        
+        <div class="step">
+          <div class="step-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
+            </svg>
+          </div>
+          <div class="step-content">
+            <p>Dê o aceite da proposta para a nossa equipe</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <div class="step-content">
+            <p>Após o aceite, envie os documentos que solicitamos (o envio pode ser por e-mail ou whatsapp)</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+            </svg>
+          </div>
+          <div class="step-content">
+            <p>Contrato & Assinatura</p>
+            <p class="subtitle">Assine o contrato recebido no seu e-mail</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div class="step-content">
+            <p>Receba o dinheiro na sua conta</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div>
+        <div class="process-card">
+          <h3>DADOS DO PROCESSO</h3>
+          
+          <div class="process-item">
+            <p class="process-label">Natureza do Ativo Judicial</p>
+            <p class="process-value">{{ natureza }}</p>
+          </div>
+          
+          <div class="process-item">
+            <p class="process-label">Número do Processo</p>
+            <p class="process-value">{{ numero_processo }}</p>
+          </div>
+          
+          <div class="process-item">
+            <p class="process-label">Reclamante</p>
+            <p class="process-value">{{ reclamante }}</p>
+          </div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-card-gradient">
+          <h3>SAIBA MAIS</h3>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
             </div>
+            <p class="info-text">
+              Após aceitar nossa proposta, fazemos o pagamento em até 02 dias úteis após toda a assinatura do contrato. O pagamento será feito diretamente em sua conta corrente.
+            </p>
           </div>
 
-          <!-- Saiba Mais Section -->
-          <div class="card-gradient">
-            <h3 class="text-2xl" style="margin-bottom: 2rem;">SAIBA MAIS</h3>
-            
-            <div class="space-y-8">
-              <div class="info-card">
-                <div class="info-icon">
-                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-sm">
-                    Após aceitar nossa proposta, fazemos o pagamento em até 02 dias úteis após toda a assinatura do contrato. O pagamento será feito diretamente em sua conta corrente.
-                  </p>
-                </div>
-              </div>
-
-              <div class="info-card">
-                <div class="info-icon">
-                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-sm">
-                    Ao final do processo, caso o cálculo homologado seja superior ao cálculo de referência, você receberá <strong>{{ porcentagem_adicional }}</strong> valor adicional
-                  </p>
-                </div>
-              </div>
-
-              <div class="info-card">
-                <div class="info-icon">
-                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-sm">
-                    A conclusão do processo até o encerramento segura com seu advogado
-                  </p>
-                </div>
-              </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
             </div>
+            <p class="info-text">
+              Ao final do processo, caso o cálculo homologado seja superior ao cálculo de referência, você receberá <strong>{{ porcentagem_adicional }}</strong> valor adicional
+            </p>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <p class="info-text">
+              A conclusão do processo até o encerramento segura com seu advogado
+            </p>
           </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div>
-        <div class="contact-info">
+    <!-- Footer -->
+    <div class="footer">
+      <div class="contact-info">
+        <div class="contact-item">
           <svg fill="currentColor" viewBox="0 0 20 20">
             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
           </svg>
           <span>camilacallipo@gmail.com</span>
         </div>
-        <div class="contact-info">
+        <div class="contact-item">
           <svg fill="currentColor" viewBox="0 0 20 20">
             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
           </svg>
           <span>(31) 92004-1328</span>
         </div>
       </div>
-      <div class="footer-address">
+      <div>
         <p>Av. Nove de Julho, 3229, cj. 303, Jardim Paulista, São Paulo/SP CEP 01407-000</p>
       </div>
     </div>
-  </footer>
+  </div>
 </body>
 </html>
