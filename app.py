@@ -46,7 +46,8 @@ def gerar_proposta_pdf():
 
         # Generate PDF in memory
         pdf_io = io.BytesIO()
-        HTML(string=rendered_html).write_pdf(pdf_io)
+        base_dir = Path(__file__).parent / "."
+        HTML(string=rendered_html, base_url=str(base_dir)).write_pdf(pdf_io)
         pdf_io.seek(0)
 
         # Retorno direto de arquivo pdf

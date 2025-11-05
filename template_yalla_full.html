@@ -165,8 +165,8 @@
     }
 
     .step {
-      display: flex; /* Use flexbox for horizontal alignment */
-      align-items: flex-start; /* Align items to the top */
+      display: flex;
+      align-items: flex-start;
       margin-bottom: 15px;
       page-break-inside: avoid;
     }
@@ -179,18 +179,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      /*display: flex;  Use flexbox for centering SVG */
-      justify-content: center;
-      /* align-items: center; */
-      color: white; /* Fallback for text, though SVG takes over */
-      flex-shrink: 0; /* Prevent icon from shrinking */
-      margin-right: 15px; /* Space between icon and content */
-    }
-    
-    .step-icon svg {
-        width: 60%; /* Adjust SVG size within its container */
-        height: 60%; /* Adjust SVG size within its container */
-        stroke: white;
+      flex-shrink: 0;
+      margin-right: 15px;
     }
 
     .step-content p {
@@ -239,9 +229,9 @@
       font-weight: 500;
     }
 
-    /* Info Card (Gradient) - Corrected to match image */
+    /* Info Card (Gradient) */
     .info-card-gradient {
-      background-color: #00CED1; /* Solid color as in the image */
+      background-color: #00CED1;
       color: white;
       border-radius: 8px;
       padding: 18px;
@@ -254,8 +244,8 @@
     }
 
     .info-item {
-      display: flex; /* Use flexbox for horizontal alignment */
-      align-items: flex-start; /* Align items to the top */
+      display: flex;
+      align-items: flex-start;
       margin-bottom: 15px;
       page-break-inside: avoid;
     }
@@ -263,19 +253,13 @@
     .info-icon {
       width: 35px;
       height: 35px;
-      background: rgba(255, 255, 255, 0.25); /* Lighter background for icon */
+      background: rgba(255, 255, 255, 0.25);
       border-radius: 6px;
-      display: flex; /* Use flexbox for centering SVG */
+      display: flex;
       justify-content: center;
       align-items: center;
-      flex-shrink: 0; /* Prevent icon from shrinking */
-      margin-right: 12px; /* Space between icon and text */
-    }
-    
-    .info-icon svg {
-        width: 60%; /* Adjust SVG size within its container */
-        height: 60%; /* Adjust SVG size within its container */
-        stroke: white;
+      flex-shrink: 0;
+      margin-right: 12px;
     }
 
     .info-text {
@@ -286,11 +270,12 @@
 
     /* Footer */
     .footer {
-      margin-top: 30px;
+      margin-top: auto;
       padding-top: 15px;
       border-top: 1px solid #e5e5e5;
       font-size: 9pt;
       color: #666;
+      page-break-inside: avoid;
     }
 
     .footer-table {
@@ -313,15 +298,6 @@
 
     .contact-info {
       margin-bottom: 5px;
-    }
-
-    .footer {
-      margin-top: auto;         /* <- key line to push footer down */
-      padding-top: 15px;
-      border-top: 1px solid #e5e5e5;
-      font-size: 9pt;
-      color: #666;
-      page-break-inside: avoid; /* avoid splitting the footer */
     }
 
     strong {
@@ -347,7 +323,6 @@
       padding-top: 8px;
     }
 
-    /* Page setup + margin box placement */
     @page {
       size: A4;
       margin: 15mm;
@@ -356,7 +331,6 @@
       }
     }
 
-    /* Prevent awkward breaks in your main sections */
     .section,
     .block {
       page-break-inside: avoid;
@@ -365,6 +339,9 @@
 </head>
 <body>
   <div class="page">
+    <div class="header">
+      <div class="logo"><img src="yalla.png" style="width: 9%; height: 9%;"></div>
+    </div>
     <h1>PROPOSTA DE CESSÃO DE CRÉDITO</h1>
 
     <div class="content">
@@ -407,8 +384,8 @@
             
             <div class="step">
               <div class="step-icon">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
+                <svg width="27" height="27" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
               <div class="step-content">
@@ -418,8 +395,8 @@
 
             <div class="step">
               <div class="step-icon">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                <svg width="27" height="27" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
               <div class="step-content">
@@ -429,8 +406,8 @@
 
             <div class="step">
               <div class="step-icon">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                <svg width="27" height="27" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
               <div class="step-content">
@@ -441,8 +418,8 @@
 
             <div class="step">
               <div class="step-icon">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg width="27" height="27" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
               <div class="step-content">
@@ -476,8 +453,8 @@
               
               <div class="info-item">
                 <div class="info-icon">
-                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </div>
                 <div class="info-text">
@@ -487,8 +464,8 @@
 
               <div class="info-item">
                 <div class="info-icon">
-                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </div>
                 <div class="info-text">
@@ -498,8 +475,8 @@
 
               <div class="info-item">
                 <div class="info-icon">
-                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </div>
                 <div class="info-text">
