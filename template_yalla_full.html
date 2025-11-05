@@ -176,9 +176,12 @@
       height: 45px;
       background: #FF6B35;
       border-radius: 8px;
-      display: flex; /* Use flexbox for centering SVG */
-      justify-content: center;
+      display: inline-flex;
       align-items: center;
+      justify-content: center;
+      /*display: flex;  Use flexbox for centering SVG */
+      justify-content: center;
+      /* align-items: center; */
       color: white; /* Fallback for text, though SVG takes over */
       flex-shrink: 0; /* Prevent icon from shrinking */
       margin-right: 15px; /* Space between icon and content */
@@ -335,6 +338,29 @@
         padding: 0;
       }
     }
+
+    .doc-footer {
+      position: running(doc-footer);
+      font-size: 9pt;
+      color: #666;
+      border-top: 1px solid #e5e5e5;
+      padding-top: 8px;
+    }
+
+    /* Page setup + margin box placement */
+    @page {
+      size: A4;
+      margin: 15mm;
+      @bottom-center {
+        content: element(doc-footer);
+      }
+    }
+
+    /* Prevent awkward breaks in your main sections */
+    .section,
+    .block {
+      page-break-inside: avoid;
+    }
   </style>
 </head>
 <body>
@@ -486,7 +512,7 @@
       </table>
     </div>
 
-    <div class="footer">
+    <footer class="doc-footer">
       <table class="footer-table">
         <tr>
           <td>
@@ -498,7 +524,7 @@
           </td>
         </tr>
       </table>
-    </div>
+    </footer>
   </div>
 </body>
 </html>
