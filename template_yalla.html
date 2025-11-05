@@ -86,8 +86,19 @@
 
 /* Global print tightening */
 @media print {
-  /* Keep whole layout within the inner A4 width */
-  .page { max-width: 190mm; margin: 0 auto; }
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+  }
+  .page {
+    width: 190mm;
+    height: 277mm; /* 297mm - 2*10mm margin */
+    margin: 10mm auto;
+    overflow: hidden !important;
+    box-sizing: border-box;
+  }
 
   /* Kill heavy borders/shadows & extra paddings in print */
   .shadow-sm { box-shadow: none !important; }
