@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proposta de Cessão de Crédito</title>
+    <style>
+        :root {
+            --color-gray-50: #f9fafb;
+            --color-gray-200: #e5e7eb;
+            --color-gray-300: #d1d5db;
+            --color-gray-500: #6b7280;
+            --color-gray-600: #4b5563;
+            --color-gray-700: #374151;
+            --color-gray-900: #111827;
+            --white: #ffffff;
+            --radius-xl: 1rem;
+            --container-7xl: 80rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        body {
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            color: var(--color-gray-900);
+            background: #fff;
+            line-height: 1.5
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .min-h-screen {
+            min-height: 100vh
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .flex {
+            display: flex
+        }
+
+        .grid {
+            display: grid
+        }
+
+        .flex-col {
+            flex-direction: column
+        }
+
+        .items-center {
+            align-items: center
+        }
+
+        .items-start {
+            align-items: flex-start
+        }
+
+        .justify-between {
+            justify-content: space-between
+        }
+
+        .justify-center {
+            justify-content: center
+        }
+
+        .gap-2 {
+            gap: .5rem
+        }
+
+        .gap-4 {
+            gap: 1rem
+        }
+
+        .gap-8 {
+            gap: 2rem
+        }
+
+        .p-6 {
+            padding: 1.5rem
+        }
+
+        .p-8 {
+            padding: 2rem
+        }
+
+        .px-8 {
+            padding-left: 2rem;
+            padding-right: 2rem
+        }
+
+        .py-6 {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem
+        }
+
+        .py-8 {
+            padding-top: 2rem;
+            padding-bottom: 2rem
+        }
+
+        .py-16 {
+            padding-top: 4rem;
+            padding-bottom: 4rem
+        }
+
+        .rounded-2xl {
+            border-radius: 1rem
+        }
+
+        .rounded-xl {
+            border-radius: .75rem
+        }
+
+        .border-b {
+            border-bottom: 1px solid var(--color-gray-200)
+        }
+
+        .border-t-4 {
+            border-top: 4px solid
+        }
+
+        .border-\[\#00CED1\] {
+            border-color: #00CED1
+        }
+
+        .bg-white {
+            background: #fff
+        }
+
+        .bg-gray-900 {
+            background: #111827
+        }
+
+        .text-white {
+            color: #fff
+        }
+
+        .text-gray-300 {
+            color: var(--color-gray-300)
+        }
+
+        .text-gray-500 {
+            color: var(--color-gray-500)
+        }
+
+        .text-gray-600 {
+            color: var(--color-gray-600)
+        }
+
+        .text-gray-700 {
+            color: var(--color-gray-700)
+        }
+
+        .text-gray-900 {
+            color: var(--color-gray-900)
+        }
+
+        .text-sm {
+            font-size: .875rem;
+            line-height: 1.25rem
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+            line-height: 2rem
+        }
+
+        .text-5xl {
+            font-size: 3rem;
+            line-height: 1
+        }
+
+        .mb-1 {
+            margin-bottom: .25rem
+        }
+
+        .mb-2 {
+            margin-bottom: .5rem
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem
+        }
+
+        .mt-12 {
+            margin-top: 3rem
+        }
+
+        .max-w-7xl {
+            max-width: var(--container-7xl)
+        }
+
+        .w-12 {
+            width: 3rem
+        }
+
+        .h-12 {
+            height: 3rem
+        }
+
+        .w-16 {
+            width: 4rem
+        }
+
+        .h-16 {
+            height: 4rem
+        }
+
+        .w-5 {
+            width: 1.25rem
+        }
+
+        .h-5 {
+            height: 1.25rem
+        }
+
+        .w-6 {
+            width: 1.5rem
+        }
+
+        .h-6 {
+            height: 1.5rem
+        }
+
+        .w-8 {
+            width: 2rem
+        }
+
+        .h-8 {
+            height: 2rem
+        }
+
+        .flex-1 {
+            flex: 1
+        }
+
+        .flex-shrink-0 {
+            flex-shrink: 0
+        }
+
+        .shadow-sm {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .06)
+        }
+
+        .bg-gradient-to-br {
+            background-image: linear-gradient(135deg, var(--grad-from), var(--grad-to))
+        }
+
+        .from-white {
+            --grad-from: #ffffff
+        }
+
+        .to-gray-50 {
+            --grad-to: #f9fafb
+        }
+
+        .bg-gradient-to-r {
+            background-image: linear-gradient(90deg, var(--grad-from), var(--grad-to))
+        }
+
+        .from-\[\#00CED1\] {
+            --grad-from: #00CED1
+        }
+
+        .to-\[\#20B2AA\] {
+            --grad-to: #20B2AA
+        }
+
+        .bg-clip-text {
+            -webkit-background-clip: text;
+            background-clip: text
+        }
+
+        .text-transparent {
+            color: transparent
+        }
+
+        .space-y-2>*+* {
+            margin-top: .5rem
+        }
+
+        .space-y-4>*+* {
+            margin-top: 1rem
+        }
+
+        .space-y-6>*+* {
+            margin-top: 1.5rem
+        }
+
+        .space-y-8>*+* {
+            margin-top: 2rem
+        }
+
+        .md\:grid-cols-2 {
+            grid-template-columns: 1fr
+        }
+
+        @media(min-width:768px) {
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr))
+            }
+
+            .md\:flex-row {
+                flex-direction: row
+            }
+
+            .md\:text-right {
+                text-align: right
+            }
+        }
+
+        .hover\:text-gray-900:hover {
+            color: var(--color-gray-900)
+        }
+
+        /* Colored square icon container */
+        .icon-box {
+            background: #FF6B35;
+            border-radius: .75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        /* White translucent square used in "Saiba Mais" section */
+        .white20 {
+            background: rgba(255, 255, 255, .2);
+            border-radius: .75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        /* Simple generic SVG icon */
+        .i {
+            display: block
+        }
+    </style>
+</head>
+
+<body>
+    <div class="min-h-screen bg-white">
+        <!-- Header -->
+        <header class="bg-white border-b px-8 py-6">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <!-- Replace with real logo if available -->
+                    <img alt="Yalla" class="h-8"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWP4z8DwHwAFVwJwqT5mRwAAAABJRU5ErkJggg==" />
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero -->
+        <section class="bg-gradient-to-br from-white to-gray-50 px-8 py-16">
+            <div class="max-w-7xl mx-auto">
+                <h1 class="text-5xl mb-8 text-gray-900">PROPOSTA DE CESSÃO DE CRÉDITO</h1>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Left column -->
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-2xl shadow-sm p-8">
+                            <p class="text-gray-700 mb-2">Olá, <strong>{{ nome }}</strong>,</p>
+                            <p class="text-gray-700">Segue proposta para <strong>realização</strong> de cessão de
+                                crédito parcial do processo</p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl shadow-sm p-8">
+                            <p class="text-sm text-gray-600 mb-2">Valor da proposta:</p>
+                            <p
+                                class="text-5xl bg-gradient-to-r from-[#00CED1] to-[#20B2AA] bg-clip-text text-transparent">
+                                {{ valor_proposta }}*</p>
+                            <p class="text-sm text-gray-500 mt-4">Para antecipar o crédito no valor de {{ valor_credito }}</p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-gray-900 text-white rounded-xl p-6 text-sm">
+                                * {{ obs | safe }}
+                            </div>
+                            <div class="bg-gray-900 text-white rounded-xl p-6 text-sm">
+                                O risco do processo é todo da Juri. Portanto, caso algo dê errado em seu processo, ou a
+                                gente receba valor inferior ao estimado, você não deverá nada à Juri Capital
+                            </div>
+                        </div>
+
+                        <!-- Próximos passos -->
+                        <div class="space-y-6 mt-12">
+                            <h2 class="text-2xl text-gray-900">Próximos passos</h2>
+
+                            <div class="flex gap-4 items-start">
+                                <div class="w-16 h-16 icon-box flex-shrink-0">
+                                    <!-- handshake icon (generic) -->
+                                    <svg class="i" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                                        stroke-width="2">
+                                        <path d="M4 12l4-4 4 4 4-4 4 4" />
+                                        <path d="M8 16l4-4 4 4" />
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-gray-700">Dê o aceite da proposta para a nossa equipe</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 items-start">
+                                <div class="w-16 h-16 icon-box flex-shrink-0">
+                                    <!-- file-text icon (generic) -->
+                                    <svg class="i" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                                        stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                        <path d="M14 2v6h6" />
+                                        <path d="M16 13H8M16 17H8M10 9H8" />
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-gray-700">Após o aceite, envie os documentos que solicitamos (o envio
+                                        pode ser por e-mail ou whatsapp)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 items-start">
+                                <div class="w-16 h-16 icon-box flex-shrink-0">
+                                    <!-- pen-tool (generic) -->
+                                    <svg class="i" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                                        stroke-width="2">
+                                        <path d="M12 19l7-7 3 3-7 7-4 1z" />
+                                        <path d="M18 13l-7-7-4 4 7 7" />
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-gray-700">Contrato &amp; Assinatura</p>
+                                    <p class="text-sm text-gray-500 mt-1">Assine o contrato recebido no seu e-mail</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 items-start">
+                                <div class="w-16 h-16 icon-box flex-shrink-0">
+                                    <!-- banknote (generic) -->
+                                    <svg class="i" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                                        stroke-width="2">
+                                        <rect x="2" y="7" width="20" height="10" rx="2" ry="2"></rect>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-gray-700">Receba o dinheiro na sua conta</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right column -->
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-2xl shadow-sm p-8 border-t-4 border-[#00CED1]">
+                            <h3 class="text-xl mb-6 text-gray-900">DADOS DO PROCESSO</h3>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-sm text-gray-600 mb-1">Natureza do Ativo Judicial</p>
+                                    <p class="text-gray-900">Crédito Trabalhista</p>
+                                </div>
+
+                                <div>
+                                    <p class="text-sm text-gray-600 mb-1">Número do Processo</p>
+                                    <p class="text-gray-900">000000-00.2022.5.10.0020</p>
+                                </div>
+
+                                <div>
+                                    <p class="text-sm text-gray-600 mb-1">Reclamante</p>
+                                    <p class="text-gray-900">Orlando Ferreira Barros</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-[#00CED1] to-[#20B2AA] rounded-2xl p-8 text-white">
+                            <h3 class="text-2xl mb-8">SAIBA MAIS</h3>
+
+                            <div class="space-y-8">
+                                <div class="flex gap-4 items-start">
+                                    <div class="w-12 h-12 white20 flex-shrink-0">
+                                        <!-- info icon -->
+                                        <svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            stroke="#fff" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <path d="M12 16v-4M12 8h.01"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm">Após aceitar nossa proposta, fazemos o pagamento em até 02
+                                            dias úteis após toda a assinatura do contrato. O pagamento será feito
+                                            diretamente em sua conta corrente.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex gap-4 items-start">
+                                    <div class="w-12 h-12 white20 flex-shrink-0">
+                                        <!-- coins icon -->
+                                        <svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            stroke="#fff" stroke-width="2">
+                                            <ellipse cx="8" cy="6" rx="4" ry="2"></ellipse>
+                                            <path d="M4 6v6c0 1.1 1.8 2 4 2s4-.9 4-2V6" />
+                                            <ellipse cx="16" cy="12" rx="4" ry="2"></ellipse>
+                                            <path d="M12 12v6c0 1.1 1.8 2 4 2s4-.9 4-2v-6" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm">Ao final do processo, caso o cálculo homologado seja superior
+                                            ao cálculo de referência, você receberá <strong>{{ porcentagem_adicional }}</strong> do valor
+                                            adicional</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex gap-4 items-start">
+                                    <div class="w-12 h-12 white20 flex-shrink-0">
+                                        <!-- dollar-sign icon -->
+                                        <svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            stroke="#fff" stroke-width="2">
+                                            <path
+                                                d="M12 2v20M17 7a5 5 0 0 0-5-3 5 5 0 0 0 0 10 5 5 0 0 1 0 10 5 5 0 0 1-5-3" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm">A conclusão do processo até o encerramento segura com seu
+                                            advogado</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white px-8 py-8">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2 text-gray-300">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                        </svg>
+                        <span>camilacallipo@gmail.com</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-300">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                            <path
+                                d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                        </svg>
+                        <span>(31) 92004-1328</span>
+                    </div>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-gray-300">Av. Nove de Julho, 3229, cj. 303, Jardim Paulista, São Paulo/SP CEP
+                        01407-000</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

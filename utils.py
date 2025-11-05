@@ -19,6 +19,8 @@ def gerar_html_from_data(dados: dict) -> str:
             template = env.get_template("template_adv_nova.html")
         case 'reclamante':
             template = env.get_template("template_rec_nova.html")
+        case 'yalla':
+            template = env.get_template("template_yalla.html")
         case _:
             template = env.get_template("template_rec_nova.html")
     rendered_html = template.render(**dados)
