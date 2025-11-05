@@ -28,6 +28,9 @@
       background: white;
       width: 100%;
       padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     /* Header */
@@ -57,6 +60,7 @@
     /* Two Column Layout - Using table for better PDF compatibility */
     .content {
       width: 100%;
+      flex: 1 0 auto;
     }
 
     .two-columns {
@@ -180,8 +184,11 @@
       margin-right: 15px; /* Space between icon and content */
     }
     
-    .step-icon svg,
-    .info-icon svg { display: block; }
+    .step-icon svg {
+        width: 60%; /* Adjust SVG size within its container */
+        height: 60%; /* Adjust SVG size within its container */
+        stroke: white;
+    }
 
     .step-content p {
       font-size: 11pt;
