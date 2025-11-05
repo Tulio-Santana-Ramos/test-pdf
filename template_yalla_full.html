@@ -161,19 +161,10 @@
     }
 
     .step {
+      display: flex; /* Use flexbox for horizontal alignment */
+      align-items: flex-start; /* Align items to the top */
       margin-bottom: 15px;
       page-break-inside: avoid;
-    }
-
-    .step-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .step-icon-cell {
-      width: 45px;
-      vertical-align: top;
-      padding-right: 12px;
     }
 
     .step-icon {
@@ -181,16 +172,18 @@
       height: 45px;
       background: #FF6B35;
       border-radius: 8px;
-      display: block;
-      text-align: center;
-      line-height: 45px;
-      font-size: 20px;
-      color: white;
-      font-weight: bold;
+      display: flex; /* Use flexbox for centering SVG */
+      justify-content: center;
+      align-items: center;
+      color: white; /* Fallback for text, though SVG takes over */
+      flex-shrink: 0; /* Prevent icon from shrinking */
+      margin-right: 15px; /* Space between icon and content */
     }
-
-    .step-content {
-      vertical-align: middle;
+    
+    .step-icon svg {
+        width: 60%; /* Adjust SVG size within its container */
+        height: 60%; /* Adjust SVG size within its container */
+        stroke: white;
     }
 
     .step-content p {
@@ -239,9 +232,9 @@
       font-weight: 500;
     }
 
-    /* Info Card (Gradient) */
+    /* Info Card (Gradient) - Corrected to match image */
     .info-card-gradient {
-      background: #00CED1;
+      background-color: #00CED1; /* Solid color as in the image */
       color: white;
       border-radius: 8px;
       padding: 18px;
@@ -254,31 +247,28 @@
     }
 
     .info-item {
+      display: flex; /* Use flexbox for horizontal alignment */
+      align-items: flex-start; /* Align items to the top */
       margin-bottom: 15px;
       page-break-inside: avoid;
-    }
-
-    .info-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .info-icon-cell {
-      width: 35px;
-      vertical-align: top;
-      padding-right: 10px;
     }
 
     .info-icon {
       width: 35px;
       height: 35px;
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.25); /* Lighter background for icon */
       border-radius: 6px;
-      display: block;
-      text-align: center;
-      line-height: 35px;
-      font-size: 16px;
-      font-weight: bold;
+      display: flex; /* Use flexbox for centering SVG */
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0; /* Prevent icon from shrinking */
+      margin-right: 12px; /* Space between icon and text */
+    }
+    
+    .info-icon svg {
+        width: 60%; /* Adjust SVG size within its container */
+        height: 60%; /* Adjust SVG size within its container */
+        stroke: white;
     }
 
     .info-text {
@@ -336,15 +326,11 @@
 </head>
 <body>
   <div class="page">
-    <!-- Header -->
-    <!-- Title -->
     <h1>PROPOSTA DE CESSÃO DE CRÉDITO</h1>
 
-    <!-- Two Column Content -->
     <div class="content">
       <table class="two-columns">
         <tr>
-          <!-- Left Column -->
           <td>
             <div class="card">
               <p>
@@ -378,64 +364,54 @@
               </tr>
             </table>
 
-            <!-- Steps -->
             <h2 class="steps-title">Próximos passos</h2>
             
             <div class="step">
-              <table class="step-table">
-                <tr>
-                  <td class="step-icon-cell">
-                    <div class="step-icon">✋</div>
-                  </td>
-                  <td class="step-content">
-                    <p>Dê o aceite da proposta para a nossa equipe</p>
-                  </td>
-                </tr>
-              </table>
+              <div class="step-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
+                </svg>
+              </div>
+              <div class="step-content">
+                <p>Dê o aceite da proposta para a nossa equipe</p>
+              </div>
             </div>
 
             <div class="step">
-              <table class="step-table">
-                <tr>
-                  <td class="step-icon-cell">
-                    <div class="step-icon">📄</div>
-                  </td>
-                  <td class="step-content">
-                    <p>Após o aceite, envie os documentos que solicitamos (o envio pode ser por e-mail ou whatsapp)</p>
-                  </td>
-                </tr>
-              </table>
+              <div class="step-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <div class="step-content">
+                <p>Após o aceite, envie os documentos que solicitamos (o envio pode ser por e-mail ou whatsapp)</p>
+              </div>
             </div>
 
             <div class="step">
-              <table class="step-table">
-                <tr>
-                  <td class="step-icon-cell">
-                    <div class="step-icon">✍️</div>
-                  </td>
-                  <td class="step-content">
-                    <p>Contrato & Assinatura</p>
-                    <p class="subtitle">Assine o contrato recebido no seu e-mail</p>
-                  </td>
-                </tr>
-              </table>
+              <div class="step-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                </svg>
+              </div>
+              <div class="step-content">
+                <p>Contrato & Assinatura</p>
+                <p class="subtitle">Assine o contrato recebido no seu e-mail</p>
+              </div>
             </div>
 
             <div class="step">
-              <table class="step-table">
-                <tr>
-                  <td class="step-icon-cell">
-                    <div class="step-icon">💰</div>
-                  </td>
-                  <td class="step-content">
-                    <p>Receba o dinheiro na sua conta</p>
-                  </td>
-                </tr>
-              </table>
+              <div class="step-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div class="step-content">
+                <p>Receba o dinheiro na sua conta</p>
+              </div>
             </div>
           </td>
 
-          <!-- Right Column -->
           <td>
             <div class="process-card">
               <h3>DADOS DO PROCESSO</h3>
@@ -456,47 +432,40 @@
               </div>
             </div>
 
-            <!-- Info Section -->
             <div class="info-card-gradient">
               <h3>SAIBA MAIS</h3>
               
               <div class="info-item">
-                <table class="info-table">
-                  <tr>
-                    <td class="info-icon-cell">
-                      <div class="info-icon">ℹ️</div>
-                    </td>
-                    <td class="info-text">
-                      Após aceitar nossa proposta, fazemos o pagamento em até 02 dias úteis após toda a assinatura do contrato. O pagamento será feito diretamente em sua conta corrente.
-                    </td>
-                  </tr>
-                </table>
+                <div class="info-icon">
+                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div class="info-text">
+                  Após aceitar nossa proposta, fazemos o pagamento em até 02 dias úteis após toda a assinatura do contrato. O pagamento será feito diretamente em sua conta corrente.
+                </div>
               </div>
 
               <div class="info-item">
-                <table class="info-table">
-                  <tr>
-                    <td class="info-icon-cell">
-                      <div class="info-icon">💲</div>
-                    </td>
-                    <td class="info-text">
-                      Ao final do processo, caso o cálculo homologado seja superior ao cálculo de referência, você receberá <strong>{{ porcentagem_adicional }}</strong> valor adicional
-                    </td>
-                  </tr>
-                </table>
+                <div class="info-icon">
+                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div class="info-text">
+                  Ao final do processo, caso o cálculo homologado seja superior ao cálculo de referência, você receberá <strong>{{ porcentagem_adicional }}</strong> do valor adicional
+                </div>
               </div>
 
               <div class="info-item">
-                <table class="info-table">
-                  <tr>
-                    <td class="info-icon-cell">
-                      <div class="info-icon">⚖️</div>
-                    </td>
-                    <td class="info-text">
-                      A conclusão do processo até o encerramento segura com seu advogado
-                    </td>
-                  </tr>
-                </table>
+                <div class="info-icon">
+                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <div class="info-text">
+                  A conclusão do processo até o encerramento segura com seu advogado
+                </div>
               </div>
             </div>
           </td>
@@ -504,7 +473,6 @@
       </table>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
       <table class="footer-table">
         <tr>
