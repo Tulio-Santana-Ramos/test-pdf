@@ -79,25 +79,66 @@
     .i{display:block}
 
     /* ---- Single-page print rules ---- */
-    @page{ size:A4; margin:10mm; }
-    html,body{height:auto}
-    .page{max-width:190mm;margin:0 auto}
-    section,header,footer,.space-y-6,.space-y-8,.grid>*{break-inside:avoid;page-break-inside:avoid}
+    @page {
+  size: A4;
+  margin: 10mm;            /* trims the page box a bit */
+}
 
-    @media print{
-      header{border:none !important}
-      .px-8{padding-left:3mm;padding-right:3mm}
-      .py-6{padding-top:2mm;padding-bottom:2mm}
-      .py-8{padding-top:3mm;padding-bottom:3mm}
-      .py-16{padding-top:5mm;padding-bottom:5mm}
-      .p-8{padding:3mm}.p-6{padding:2.5mm}
-      .gap-8{gap:4mm}.gap-4{gap:3mm}
-      .mb-8{margin-bottom:4mm}.mt-12{margin-top:5mm}
-      h1.text-5xl{font-size:17pt}
-      h2.text-2xl{font-size:12pt}
-      h3.text-xl{font-size:11pt}
-      .text-sm{font-size:8.5pt}
-    }
+/* Global print tightening */
+@media print {
+  html, body { height: auto; }
+
+  /* Keep whole layout within the inner A4 width */
+  .page { max-width: 190mm; margin: 0 auto; }
+
+  /* Kill heavy borders/shadows & extra paddings in print */
+  .shadow-sm { box-shadow: none !important; }
+  .border-b  { border: 0 !important; }
+  .p-8 { padding: 3mm !important; }
+  .p-6 { padding: 2.5mm !important; }
+  .px-8 { padding-left: 3mm !important; padding-right: 3mm !important; }
+  .py-6 { padding-top: 2mm !important;  padding-bottom: 2mm !important; }
+  .py-8 { padding-top: 3mm !important;  padding-bottom: 3mm !important; }
+  .py-16 { padding-top: 5mm !important; padding-bottom: 5mm !important; }
+
+  /* Make headings and small text more compact */
+  h1.text-5xl { font-size: 16.5pt !important; line-height: 1.1 !important; }
+  h2.text-2xl { font-size: 11.5pt !important; line-height: 1.2 !important; }
+  h3.text-xl  { font-size: 10.5pt !important; line-height: 1.2 !important; }
+  .text-sm    { font-size: 8.3pt !important; line-height: 1.25 !important; }
+
+  /* Reduce gaps and margins */
+  .gap-8 { gap: 4mm !important; }
+  .gap-4 { gap: 3mm !important; }
+  .mb-8  { margin-bottom: 4mm !important; }
+  .mt-12 { margin-top: 5mm !important; }
+
+  /* Prevent breaking key blocks mid-page */
+  section, header, footer, .space-y-6, .space-y-8, .grid > * {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* HARD LIMITS on potentially long content to force single page */
+  /* 1) The OBS paragraph (your "* {{ obs | safe }}") */
+  .obs-block {
+    max-height: 38mm;           /* tune this if needed */
+    overflow: hidden !important; /* prevents spill to next page */
+  }
+
+  /* 2) The entire "SAIBA MAIS" card — keep it compact */
+  .saiba-mais {
+    max-height: 78mm;           /* tune if needed */
+    overflow: hidden !important;
+  }
+
+  /* 3) Whole hero section — keep the intro tight in print */
+  .hero-tight {
+    padding-top: 4mm !important;
+    padding-bottom: 4mm !important;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -112,7 +153,7 @@
     </header>
 
     <!-- Hero -->
-    <section class="bg-gradient-to-br from-white to-gray-50 px-8 py-16">
+    <section class="bg-gradient-to-br from-white to-gray-50 px-8 py-16 hero-tight">
       <div class="max-w-7xl mx-auto">
         <h1 class="text-5xl mb-8 text-gray-900">PROPOSTA DE CESSÃO DE CRÉDITO</h1>
 
@@ -131,7 +172,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-4">
-              <div class="bg-gray-900 text-white rounded-xl p-6 text-sm">
+              <div class="bg-gray-900 text-white rounded-xl p-6 text-sm obs-block">
                 * {{ obs | safe }}
               </div>
               <div class="bg-gray-900 text-white rounded-xl p-6 text-sm">
@@ -218,7 +259,7 @@
               </div>
             </div>
 
-            <div class="bg-gradient-to-br from-[#00CED1] to-[#20B2AA] rounded-2xl p-8 text-white">
+            <div class="bg-gradient-to-br from-[#00CED1] to-[#20B2AA] rounded-2xl p-8 text-white saiba-mais">
               <h3 class="text-2xl mb-8">SAIBA MAIS</h3>
 
               <div class="space-y-8">
