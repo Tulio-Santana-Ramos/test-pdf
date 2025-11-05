@@ -360,11 +360,43 @@
         .i {
             display: block
         }
+
+        @page {
+        size: A4;
+        margin: 12mm; /* tune as needed */
+        }
+
+        /* Kill viewport-based heights that cause overflow in print */
+        html, body { height: auto; }
+        .min-h-screen { min-height: auto !important; }
+
+        /* Constrain the main page box so content fits inside the A4 area */
+        .page {
+        /* Page content width = page width (210mm) - 2 * margin (12mm) = 186mm */
+        max-width: 186mm;
+        margin: 0 auto;
+        }
+
+        /* Tame vertical spacing and huge headings in print to avoid overflow */
+        @media print {
+        .py-16 { padding-top: 10mm; padding-bottom: 10mm; }
+        .p-8   { padding: 6mm; }
+        .p-6   { padding: 5mm; }
+        .mb-8  { margin-bottom: 6mm; }
+        .text-5xl { font-size: 26pt; line-height: 1.1; } /* was 3rem web-scale */
+        }
+
+        /* Avoid breaking important blocks across pages (best-effort) */
+        section, header, footer,
+        .space-y-6, .space-y-8, .grid > * {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        }
     </style>
 </head>
 
 <body>
-    <div class="min-h-screen bg-white">
+    <div class="page bg-white">
         <!-- Header -->
         <header class="bg-white border-b px-8 py-6">
             <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -481,17 +513,17 @@
                             <div class="space-y-4">
                                 <div>
                                     <p class="text-sm text-gray-600 mb-1">Natureza do Ativo Judicial</p>
-                                    <p class="text-gray-900">Crédito Trabalhista</p>
+                                    <p class="text-gray-900">{{ natureza }}</p>
                                 </div>
 
                                 <div>
                                     <p class="text-sm text-gray-600 mb-1">Número do Processo</p>
-                                    <p class="text-gray-900">000000-00.2022.5.10.0020</p>
+                                    <p class="text-gray-900">{{ numero_processo }}</p>
                                 </div>
 
                                 <div>
                                     <p class="text-sm text-gray-600 mb-1">Reclamante</p>
-                                    <p class="text-gray-900">Orlando Ferreira Barros</p>
+                                    <p class="text-gray-900">{{ reclamante }}</p>
                                 </div>
                             </div>
                         </div>
