@@ -180,11 +180,8 @@
       margin-right: 15px; /* Space between icon and content */
     }
     
-    .step-icon svg {
-        width: 60%; /* Adjust SVG size within its container */
-        height: 60%; /* Adjust SVG size within its container */
-        stroke: white;
-    }
+    .step-icon svg,
+    .info-icon svg { display: block; }
 
     .step-content p {
       font-size: 11pt;
@@ -306,6 +303,15 @@
 
     .contact-info {
       margin-bottom: 5px;
+    }
+
+    .footer {
+      margin-top: auto;         /* <- key line to push footer down */
+      padding-top: 15px;
+      border-top: 1px solid #e5e5e5;
+      font-size: 9pt;
+      color: #666;
+      page-break-inside: avoid; /* avoid splitting the footer */
     }
 
     strong {
